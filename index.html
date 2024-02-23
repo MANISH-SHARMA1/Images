@@ -53,140 +53,29 @@
     </div>
 
     <script>
-      // JSON structure containing image URLs
-      var images = [
-        {
-          name: "Dr. Najwa Joharji",
-          specialization: "Pediatric Dental Consultant",
-          image: "assets/img1.jpg",
-        },
-        {
-          name: "Dr. Ibrahim Almajed",
-          specialization: "Orthodontist",
-          image: "assets/img2.jpg",
-        },
-        {
-          name: "Dr. Mhanna Aljabab",
-          specialization: "Orthodontist",
-          image: "assets/img3.jpg",
-        },
-        {
-          name: "Dr. Wael Alomari",
-          specialization: "Dental Care",
-          image: "assets/img4.jpg",
-        },
-        {
-          name: "Dr. Emma Johnson",
-          specialization: "Neurology",
-          image: "assets/img5.jpg",
-        },
-        {
-          name: "Dr. Noah Martinez",
-          specialization: "Othopedics",
-          image: "assets/img6.jpg",
-        },
-        {
-          name: "Dr. Liam Smith ",
-          specialization: "Psychiatry",
-          image: "assets/img7.jpg",
-        },
-        {
-          name: "Dr. William Taylor ",
-          specialization: "Obstetrics",
-          image: "assets/img8.jpg",
-        },
-        {
-          name: "Dr. Ava Anderson ",
-          specialization: "Oncology",
-          image: "assets/img9.jpg",
-        },
-        {
-          name: "Dr. Benjamin Davis",
-          specialization: "Endocrinology",
-          image: "assets/img10.jpg",
-        },
-        {
-          name: "Dr. Sophia Thomas",
-          specialization: "Geriatrics",
-          image: "assets/img11.jpg",
-        },
-        {
-          name: "Dr. Charlotte White",
-          specialization: "Sports Medicine",
-          image: "assets/img12.jpg",
-        },
-        {
-          name: "Dr. Elijah Gacia",
-          specialization: "Anesthesiology",
-          image: "assets/img13.jpg",
-        },
-        {
-          name: "Michael Johnson",
-          specialization: "Emergency Medicine",
-          image: "assets/img14.jpg",
-        },
-        {
-          name: "Dr. Mia Martinez ",
-          specialization: "Otolaryngology(ENT)",
-          image: "assets/img15.jpg",
-        },
-        {
-          name: "Dr. Amelia Lee",
-          specialization: "Infectious Disease",
-          image: "assets/img16.jpg",
-        },
-        {
-          name: "Dr. Evelyn Walker ",
-          specialization: "Geriatrics",
-          image: "assets/img17.jpg",
-        },
-        {
-          name: "Dr. Elijah Garcia ",
-          specialization: "Plastic Surgery",
-          image: "assets/img18.jpg",
-        },
-        {
-          name: "Dr. Michael Johnson",
-          specialization: "Pulmonology",
-          image: "assets/img19.jpg",
-        },
-        {
-          name: "Dr. james Rodriguez ",
-          specialization: "Nephrology",
-          image: "assets/img20.jpg",
-        },
-        {
-          name: "Dr. Alexander Young ",
-          specialization: "Urology",
-          image: "assets/img21.jpg",
-        },
-        {
-          name: "Dr. Michael Baker ",
-          specialization: "Rhemumatology",
-          image: "assets/img22.webp",
-        },
-        {
-          name: "Dr. James Rodriguez ",
-          specialization: "Gastroenterology",
-          image: "assets/img23.webp",
-        },
-        {
-          name: "Dr. Henry Clark ",
-          specialization: "Endocrionology",
-          image: "assets/img24.webp",
-        },
-        {
-          name: "Dr. Amelia Lee ",
-          specialization: "Allergy and Immunology",
-          image: "assets/img25.jpg",
-        },
-        // Add more user data as needed
-      ];
+     
+    //  Function to fetch JSON data via AJAX
+     function fetchImages() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'images.json', true); 
+            xhr.onload = function() {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    var imagesData = JSON.parse(xhr.responseText);
+                    displayImages(imagesData);
+                } else {
+                    console.error('Failed to load JSON data');
+                }
+            };
+            xhr.onerror = function() {
+                console.error('Error while fetching JSON data');
+            };
+            xhr.send();
+        }
 
-      // Function to load images from JSON
-      function loadImages() {
+      // Function to display images from JSON data
+      function displayImages(imagesData) {
         var container = document.getElementById("image-container");
-        images.forEach(function (item) {
+        imagesData.forEach(function (item) {
           var userCard = document.createElement("div");
           var userCardBottom = document.createElement("div");
           userCardBottom.id = "cardBottom";
@@ -210,8 +99,8 @@
         });
       }
 
-      // Call the function to load images
-      loadImages();
+      // Call the function to fetch JSON data
+      fetchImages();
     </script>
   </body>
 </html>
