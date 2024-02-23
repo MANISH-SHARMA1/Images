@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* Some basic styling for the images */
+      body {
+        text-align: center;
+      }
+      #image-container {
+        display: flex;
+        overflow-x: scroll;
+        text-align: center;
+        margin-top: 10vh;
+        gap: 20px;
+      }
+      #image-container::-webkit-scrollbar {
+        display: none;
+      }
+      img {
+        width: 200px;
+        height: 200px;
+        margin: 5px;
+        border-radius: 5px 5px 0 0;
+      }
+
+      #verticalLine {
+        width: 10vw;
+        height: 1px;
+        background-color: rgb(5, 252, 170);
+        margin: -20px auto auto auto;
+      }
+
+      #cardBottom {
+        margin-top: -30px;
+      }
+      #cardBottom:hover {
+        background-color: rgb(29, 164, 29);
+        color: #fff;
+        cursor: pointer;
+        border-radius: 0 0 5px 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Select Doctor</h1>
+    <div id="verticalLine"></div>
+
+    <div>
+      <div id="image-container"></div>
+    </div>
+
+    <script>
+      // JSON structure containing image URLs
+      var images = [
+        {
+          name: "Dr. Najwa Joharji",
+          designation: "Pediatric Dental Consultant",
+          image: "assets/img1.jpg",
+        },
+        {
+          name: "Dr. Ibrahim Almajed",
+          designation: "Orthodontist",
+          image: "assets/img2.jpg",
+        },
+        {
+          name: "Dr. Mhanna Aljabab",
+          designation: "Orthodontist",
+          image: "assets/img3.jpg",
+        },
+        {
+          name: "Dr. Wael Alomari",
+          designation: "Dental Care",
+          image: "assets/img4.jpg",
+        },
+        {
+          name: "Michael Johnson",
+          designation: "Data Scientist",
+          image: "assets/img5.jpg",
+        },
+        {
+          name: "Michael Johnson",
+          designation: "Data Scientist",
+          image: "assets/img6.jpg",
+        },
+        {
+          name: "Michael Johnson",
+          designation: "Data Scientist",
+          image: "assets/img7.jpg",
+        },
+        {
+          name: "Michael Johnson",
+          designation: "Data Scientist",
+          image: "assets/img8.jpg",
+        },
+        {
+          name: "Michael Johnson",
+          designation: "Data Scientist",
+          image: "assets/img9.jpg",
+        },
+        {
+          name: "Michael Johnson",
+          designation: "Data Scientist",
+          image: "assets/img10.jpg",
+        },
+        {
+          name: "Michael Johnson",
+          designation: "Data Scientist",
+          image: "assets/img11.jpg",
+        },
+        {
+          name: "Michael Johnson",
+          designation: "Data Scientist",
+          image: "assets/img12.jpg",
+        },
+        {
+          name: "Michael Johnson",
+          designation: "Data Scientist",
+          image: "assets/img13.jpg",
+        },
+        {
+          name: "Michael Johnson",
+          designation: "Data Scientist",
+          image: "assets/img14.jpg",
+        },
+        {
+          name: "Michael Johnson",
+          designation: "Data Scientist",
+          image: "assets/img15.jpg",
+        },
+        {
+          name: "Michael Johnson",
+          designation: "Data Scientist",
+          image: "assets/img16.jpg",
+        },
+        {
+          name: "Michael Johnson",
+          designation: "Data Scientist",
+          image: "assets/img17.jpg",
+        },
+        {
+          name: "Michael Johnson",
+          designation: "Data Scientist",
+          image: "assets/img18.jpg",
+        },
+        {
+          name: "Michael Johnson",
+          designation: "Data Scientist",
+          image: "assets/img19.jpg",
+        },
+        {
+          name: "Michael Johnson",
+          designation: "Data Scientist",
+          image: "assets/img20.jpg",
+        },
+        {
+          name: "Michael Johnson",
+          designation: "Data Scientist",
+          image: "assets/img21.jpg",
+        },
+        {
+          name: "Michael Johnson",
+          designation: "Data Scientist",
+          image: "assets/img22.webp",
+        },
+        {
+          name: "Michael Johnson",
+          designation: "Data Scientist",
+          image: "assets/img23.webp",
+        },
+        {
+          name: "Michael Johnson",
+          designation: "Data Scientist",
+          image: "assets/img24.webp",
+        },
+        {
+          name: "Michael Johnson",
+          designation: "Data Scientist",
+          image: "assets/img25.jpg",
+        },
+        // Add more user data as needed
+      ];
+
+      // Function to load images from JSON
+      function loadImages() {
+        var container = document.getElementById("image-container");
+        images.forEach(function (item) {
+          var userCard = document.createElement("div");
+          var userCardBottom = document.createElement("div");
+          userCardBottom.id = "cardBottom";
+          userCard.classList.add("user-card");
+
+          var img = document.createElement("img");
+          img.src = item.image;
+
+          var namePara = document.createElement("h4");
+          namePara.textContent = item.name;
+
+          var designationPara = document.createElement("p");
+          designationPara.textContent = item.designation;
+
+          userCardBottom.appendChild(namePara);
+          userCardBottom.appendChild(designationPara);
+          userCard.appendChild(img);
+          userCard.appendChild(userCardBottom);
+
+          container.appendChild(userCard);
+        });
+      }
+
+      // Call the function to load images
+      loadImages();
+    </script>
+  </body>
+</html>
